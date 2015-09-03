@@ -1,29 +1,20 @@
 <h3>Book List</h3>
 
-#foreach($major in $all_majors)
+#foreach($book in $books)
 <table class="table table-condensed">
 
-  #if($major.getMajor() == "art")
+  #if($book.getName() == "Harry Potter and the Sorcerer's Stone")
     <tr class = "active">
-  #elseif($major.getMajor() == "history")
+  #elseif($book.getName() == "Harry Potter and the Goblet of Fire")
     <tr class = "warning">
-  #elseif($major.getMajor() == "biology")
+      #elseif($book.getName() == "Harry Potter and the Chamber of Secrets")
     <tr class = "danger">
-  #elseif($major.getMajor() == "computer science")
+      #elseif($book.getName() == "Harry Potter and the Prisoner of Azkaban")
     <tr class = "info">
   #else
   <tr class = "success">
   #end
-
-  <td>
-    <h3>$major.getMajor()</h3>
-    <ul>
-    #foreach($book in $major.getBooks())
-      <li>$book.getName() </li>
-    #end
-    </ul>
-  </td>
-
+  <td>$book.getName()</td>
   </tr>
 </table>
 #end

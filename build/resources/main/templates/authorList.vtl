@@ -8,11 +8,11 @@
 
 <br>
 <table style='width:50%'>
-  #foreach ($category in $authors)
+  #foreach ($author in $authors)
   <tr>
-    <td><a href='/authors/$category.getId()'><span class="glyphicon glyphicon-pencil"></span></a></td>
-    <td><a href='/authors/$category.getId()'>$category.getName()</a></td>
-    <td><a href='/delete_authors/$category.getId()'><span class="glyphicon glyphicon-remove"></span></a></td>
+    <td><a href='/authors/$author.getId()'><span class="glyphicon glyphicon-pencil"></span></a></td>
+    <td><a href='/authors/$author.getId()'>$author.getName()</a></td>
+    <td><a href='/delete_authors/$author.getId()'><span class="glyphicon glyphicon-remove"></span></a></td>
   </tr>
   #end
 </table>

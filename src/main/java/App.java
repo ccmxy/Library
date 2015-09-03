@@ -16,6 +16,7 @@ public class App {
       model.put("template", "templates/index.vtl");
       model.put("books", Book.all());
       model.put("authors", Author.all());
+      model.put("patrons", Patron.all());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -36,6 +37,16 @@ public class App {
       response.redirect("/");
       return null;
     });
+
+
+      post("/add_patron", (request, response) -> {
+          HashMap<String, Object> model = new HashMap<String, Object>();
+          String name = request.queryParams("patron_name");
+          Patron newPatron = new Patron(name);
+          newPatron.save();
+          response.redirect("/");
+          return null;
+        });
 
     get("/author/:id", (request,response) ->{
      HashMap<String, Object> model = new HashMap<String, Object>();
@@ -114,8 +125,15 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/bookList.vtl");
       model.put("books", Book.all());
-      model.put("all_majors", Department.all());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/authorList", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/authorList.vtl");
+      model.put("authors", Author.all());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }
