@@ -1,0 +1,80 @@
+
+<!-- <form action='/update_author' method='post'>
+  <input id='author_id' name='author_id' type='hidden' value='$author.getId()'>
+  <label for='name'>Name : </label>
+  <input id='name' name='name' type='text' value='$author.getName()'>
+</form>
+<br>
+<form action='/add_books' method='post'>
+    <input id='author_id' name='author_id' type='hidden' value='$author.getId()'>
+    <label for='book_id'>Add a book : </label>
+    <select id='book_id' name='book_id' type='text'>
+      #foreach($book in $all_books)
+        <option value='$book.getId()'> $book.getName() </option>
+      #end
+    </select>
+    <button type='submit'>Add</button>
+</form>
+<br>
+#if($books)
+  <table>
+  <tr>
+    <td>Book Name</td>
+    <td>Enrollment Date</td>
+  </tr>
+  #foreach($book in $books)
+  <tr>
+      <td>$book.getName()</td>
+      <td>$book.getDate()</td>
+  </tr>
+  #end
+  </table>
+#end
+</div> -->
+
+
+
+//Old index
+<div id="well">
+<h3>input book:</h3>
+<form action='/add_book' method='post'>
+  <label for='name'>Book Name</label>
+  <input id='name' name='name' type='text'>
+  <label for='date'>Enrollment Date</label>
+  <input id='date' type='date' name='date'/>
+  <button type='submit'> Add </button>
+</form>
+<br>
+#if($books)
+<table class="table table-condensed">
+  <tr>
+    <td>Book Name</td>
+  </tr>
+  </table>
+#end
+
+</div>
+<br>
+<div id="well">
+<h3>Input author info</h3>
+<form action='/add_author' method='post'>
+  <label for='name'>Author Name</label>
+  <input id='name' name='name' type='text'>
+  <label for='number'>Author Number</label>
+  <input id='number' type='text' name='number'/>
+  <button type='submit'> Add </button>
+</form>
+<br>
+#if($authors)
+  <table>
+  <tr>
+    <td>Author Name</td>
+  </tr>
+  #foreach($author in $authors)
+  <tr>
+      <td><a href="/author/$author.getId()">$author.getName()</a></td>
+  </tr>
+  #end
+  </table>
+#end
+</div>
